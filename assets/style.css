@@ -1,0 +1,293 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Mooli&family=Playfair:ital@1&family=Poppins:wght@100&family=Ysabeau+Infant:ital,wght@1,300&family=Ysabeau+Office:ital,wght@1,300&family=Zilla+Slab:ital,wght@0,300;1,300;1,400&display=swap');
+
+* {
+    font-family: 'Mooli', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #1fb2ed;
+    --color-white: #e8e6e3;
+    --color-black: #191c26;
+    --color-dark: #111319;
+    --color-dark-blue:#394056;
+    --color-gray: #9d9487;
+    --font-color:#e8e6e3;
+    --hover-color:rgb(142, 175, 237);
+    --hightlight-color:#ff8787;
+
+    --font-Mooli: 'Mooli', sans-serif;
+    --font-ZillaSlab: 'Zilla Slab', serif;
+    --font-Kalam: 'Kalam', cursive;
+
+    --font-lg: 64px;
+    --font-md: 26px;
+    --font-sm: 15px;
+    --font-xs: 9px;
+
+    --size-lg: 1280px;
+    --size-md: 976px;
+    --size-sm: 768px;
+    --size-xs: 500px;
+}
+html,body{
+    height:100vh;
+    background-color: var(--color-black);
+    color: var(--font-color);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader{
+    height: 50px;
+    width: 50px;
+    animation: rotate 2s infinite;
+}
+.loader:before,.loader:after{
+    border-radius: 50%;
+    content:'';
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+.loader:before{
+    animation:ball1 2s infinite;
+    background-color: #cb2025;
+    box-shadow: 30px 0 0 #f8b334;
+    margin-bottom: 10px;
+}
+.loader:after{
+    animation:ball2 2s infinite;
+    background-color: #00a096;
+    box-shadow: 30px 0 0 #97bf0d;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg) scale(0.8);
+    }
+    50%{
+        transform: rotate(360deg) scale(1.2);
+    }
+    100%{
+        transform: rotate(720deg) scale(0.8);
+    }
+}
+@keyframes ball1{
+    0%{
+        box-shadow: 30px 0 0 #f8b334;
+    }
+    50%{
+        box-shadow: 0 0 0 #f8b334;
+        margin-bottom: 0;
+        -webkit-transform: translate(15px,15px);
+    -moz-transform: translate(15px, 15px);
+    }
+    100%{
+        box-shadow: 30px 0 0 #f8b334;
+        margin-bottom: 10px;
+    }
+}
+@keyframes ball2{
+    0%{
+        box-shadow: 30px 0 0 #97bf0d;
+    }
+    50%{
+        box-shadow: 0 0 0 #97bf0d;
+        margin-top: -20px;
+        transform: translate(15px,15px);
+    }
+    100%{
+        box-shadow: 30px 0 0 #97bf0d;
+        margin-top: 0;
+    }
+}
+.main-wrapper .mobile-menu-toggle{
+    height: 100vh;
+    display: none;
+}
+
+.container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.aside{
+    overflow-x: hidden;
+    flex-basis:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    height: 100vh;
+    background-color: var(--color-dark);
+    transition: flex-basis 500ms ease-in-out;
+}
+.aside.open{
+    flex-basis: 20%;
+    transition: flex-basis 1s; 
+}
+.main{
+    flex:4;
+    background-color: var(--color-dark);
+}
+.aside-header{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: center;
+    padding-top:10px;
+}
+/* sidebar image  */
+.image-wrapper{
+    position:relative;
+    height: 100px;
+    width:100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.image-wrapper:before{
+    content:'';
+    position: absolute;
+    inset:-5px 30px;
+    background:linear-gradient(315deg,#069dc3,#dc7bef);
+    transition: 0.5s;
+    animation:animate 4s linear infinite;
+}
+.image-wrapper:hover::before{
+    inset:-10px 0;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.image-wrapper:after{
+    content:'';
+    position: absolute;
+    inset:2px;
+    background-color: #163052;
+    border-radius: 50%;
+    z-index:1;
+}
+.image-wrapper .image{
+    position: absolute;
+    inset: 1px;
+    border:6px solid #070a1c;
+    z-index: 3;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.image-wrapper .image img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    pointer-events: none;
+}
+.aside-header h1{
+    margin-top: 15px;
+}
+.socials{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+.social-icon{
+    color: var(--font-color);
+}
+/* sidebar menus  */
+.menu-item{
+    list-style: none;
+    text-align: left;
+    margin:10px 0;
+}
+a.menu-link {
+    text-decoration: none;
+    display: block;
+    color: var(--font-color);
+    box-shadow: 1px 1px 2px 1px cadetblue;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 10px;
+    
+}
+a.menu-link.active{
+    background-color: var(--hover-color);
+}
+a.menu-link:hover{
+    background-color: var(--hover-color);
+    color: white;
+    transform: scale(1.1, 1);
+}
+a.menu-link .menu-icon{
+    width:15%;
+    margin-right:10px;
+}
+.aside-main{
+    margin-top: 15px;
+}
+
+/* @media screen and  (max-width: 480px) {
+    .aside{
+        display: none;
+    }
+    
+} */
+@media screen and  (max-width: 768px) {
+    /* when window reload, container set to none */
+    .container{
+        display: none;
+    }
+
+    /* if still not click button , hide sidebar  */
+    .aside{
+        display: none;
+    }
+
+    .main-wrapper{
+        height: 100vh;
+    }
+   
+    .main-wrapper .mobile-menu-toggle.open{
+        position: sticky;
+        display: block;
+        top:0;
+        height: 50px;
+        padding: 20px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        background-color: var(--color-black);
+    }
+    .main-wrapper .mobile-menu-toggle.open a{
+        background-color: var(--color-dark-blue);
+        padding:10px;
+        border-radius: 4px;
+        color: var(--hover-color);
+    }
+    
+    
+}
+@media screen and  (max-width: 1040px) {
+
+}
+@media screen and  (max-width: 1200px) {}
+@media screen and  (max-width: 1600px) {}
