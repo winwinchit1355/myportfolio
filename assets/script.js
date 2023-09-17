@@ -11,5 +11,12 @@ $(document).ready(function($) {
     }, 3200);
     $('.toggle').click(function(){
         $(this).toggleClass('active');
+        if ($(this).hasClass('active')) {
+            $('.aside').addClass('open');
+            $('.aside').css('display', 'flex');
+        } else {
+            $('.aside').removeClass('open');
+            $('.aside').css('display', 'none');
+        }
     })
 });

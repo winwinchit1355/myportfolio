@@ -268,23 +268,43 @@ a.menu-link .menu-icon{
     }
    
     .main-wrapper .mobile-menu-toggle.open{
-        position: sticky;
-        display: block;
-        top:0;
-        height: 50px;
-        padding: 20px;
-        margin-top: 5px;
-        margin-bottom: 15px;
+        position: fixed;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .main-wrapper .mobile-menu-toggle.open div{
         background-color: var(--color-black);
+        padding:20px;
     }
     .main-wrapper .mobile-menu-toggle.open a{
         background-color: var(--color-dark-blue);
         padding:10px;
+        margin-top: 5px;
         border-radius: 4px;
         color: var(--hover-color);
     }
+    .main-wrapper .mobile-menu-toggle.open a:hover{
+        cursor: pointer;
+    }
+    .container{
+        position:static;
+        align-items: flex-start;
+        padding-top: 65px;
+    }
     
-    
+    .aside{
+        position: fixed;
+        top:10px;
+        left: 0;
+        width: 80%;
+        padding-top:65px;
+        height: 100vh;
+    }
+    /* .aside.open{
+        flex-basis: 80%;
+        transition: flex-basis 1s; 
+    } */
 }
 @media screen and  (max-width: 1040px) {
 
