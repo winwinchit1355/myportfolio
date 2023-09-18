@@ -1,22 +1,14 @@
+$(document).ready(function () {
+    $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+    });
 
-
-$(document).ready(function($) {
-    setTimeout(function () {
-        $('#loader').css({"display":"none"});
-        $('#container').css({"display":"flex"});
-    }, 3000);
-    setTimeout(function () {
-        $('.aside').addClass('open');
-        $('.mobile-menu-toggle').addClass('open');
-    }, 3200);
-    $('.toggle').click(function(){
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content' ).toggleClass('active');
         $(this).toggleClass('active');
-        if ($(this).hasClass('active')) {
-            $('.aside').addClass('open');
-            $('.aside').css('display', 'flex');
-        } else {
-            $('.aside').removeClass('open');
-            $('.aside').css('display', 'none');
-        }
+    });
+    $('.menu-link').click(function(){
+        $('.menu-link').removeClass('active');
+        $(this).addClass('active');
     })
 });
