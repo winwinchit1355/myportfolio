@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    $('#home-link').addClass('active');
+
     $("#sidebar").mCustomScrollbar({
         theme: "minimal"
     });
