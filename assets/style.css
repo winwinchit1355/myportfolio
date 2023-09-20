@@ -288,19 +288,25 @@ a.menu-link .menu-icon{
     overflow: hidden;
     border-right: 3px solid;
     font-family: var(--font-Mooli);
-    font-size: 2em;
+    font-size: 1.2em;
 }
 @keyframes typing {
     from {
-      width: 0
+        width: 0
     }
-  }
-      
-  @keyframes blink {
+}
+@keyframes blink {
     50% {
-      border-color: transparent
+        border-color: transparent
     }
-  }
+}
+.intro-text{
+    opacity:0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    color: var(--color-white);
+}
+
 #about{
     height:100vh;
 }
