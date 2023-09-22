@@ -20,4 +20,25 @@ $(document).ready(function () {
             transform: 'translateY(0)',
         });
     });
+    // sidebar menu scroll
+    const menuItems = $('.sidebar-main .menu-items div a');
+    const contentSections = $('#content section');
+    $(window).scroll(function() {
+        // Get the current scroll position
+        const scrollY = $(window).scrollTop();
+
+        // Iterate through content sections
+        contentSections.each(function(index) {
+            const sectionTop = $(this).offset().top;
+            // Check if the section is in the viewport
+            if (scrollY >= sectionTop) {
+                // Remove 'active' class from all menu items
+                menuItems.removeClass('active');
+                // Add 'active' class to the corresponding menu item
+                menuItems.eq(index).addClass('active');
+            }
+        });
+    });
+    
+    
 });
