@@ -2,28 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="Win Win Chit,win win chit, Win Win Chit Portfolio,win win chit portfolio">
+    <meta name="author" content="Win Win Chit">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Win Win Chit</title>
+
+    <link rel="icon" href="assets/images/favicon/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" >
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap">
     <link rel="stylesheet" href="assets/style.css">
+    <title>Win Win Chit</title>
 </head>
-<body>
+<!-- <body class="dark"> -->
+<body class="light">
     <!-- <div id="loader" class="loader"></div> -->
     
-    <div class="wrapper">
+    <div class="wrapper" style="display: none;">
         <!-- Start of Sidebar -->
         <nav id="sidebar" class="navbar flex-column align-items-stretch" >
             <div class="sidebar-header">
                 <div class="image-wrapper">
                     <div class="image">
-                        <img class="small-profile" src="assets/images/profile2.jpg" alt="">
+                        <img class="small-profile" src="assets/images/avatar.jpg" alt="">
                     </div>
                 </div>
-                <h2 class="name">Win Win Chit</h2>
+                <h2 class="name"><span class="highlight-text">W</span>in <span class="highlight-text">W</span>in <span class="highlight-text">C</span>hit</h2>
                 <div class="socials">
                     <a class="social-icon" href=""><i class="fa-brands fa-facebook"></i></a>
                     <a class="social-icon" href=""><i class="fa-brands fa-instagram"></i></a>
@@ -34,13 +45,25 @@
             </div>
             <div class="sidebar-main">
                 <div class="menu-items">
-                    <div class="menu-item"><a href="#home" class="menu-link" id="home-link"><i class="fa-solid fa-house menu-icon"></i>Home</a></div>
-                    <div class="menu-item"><a href="#about" class="menu-link" id="about-link"><i class="fa-solid fa-user menu-icon"></i>About</a></div>
-                    <div class="menu-item"><a href="#skills" class="menu-link" id="skills-link"><i class="fa-solid fa-computer menu-icon"></i>Skills</a></div>
-                    <div class="menu-item"><a href="#experience" class="menu-link" id="experience-link"><i class="fa-solid fa-user-gear menu-icon"></i>Experience</a></div>
-                    <div class="menu-item"><a href="#contact" class="menu-link" id="contact-link"><i class="fa-solid fa-phone menu-icon"></i>Contact</a></div>
+                    <div class="menu-item"><a href="#home" class="menu-link" id="home-link"><i class="fa-solid fa-house menu-icon highlight-text"></i>Home</a></div>
+                    <div class="menu-item"><a href="#about" class="menu-link" id="about-link"><i class="fa-solid fa-user menu-icon highlight-text "></i>About</a></div>
+                    <div class="menu-item"><a href="#skills" class="menu-link" id="skills-link"><i class="fa-solid fa-computer menu-icon highlight-text"></i>Skills</a></div>
+                    <div class="menu-item"><a href="#experience" class="menu-link" id="experience-link"><i class="fa-solid fa-user-gear menu-icon highlight-text"></i>Experience</a></div>
+                    <div class="menu-item"><a href="#contact" class="menu-link" id="contact-link"><i class="fa-solid fa-phone menu-icon highlight-text"></i>Contact</a></div>
+                    <div class="menu-item">
+                        <div class="theme-container">
+                            <label class="change-theme-label">
+                                <input type="checkbox" id="mode" class="change-theme-toggle">
+                                <span class="theme-slider round">
+                                <i class="fa-solid fa-moon fa-sm fa-spin moon"></i>
+                                <i class="fa-solid fa-sun fa-sm fa-spin sun"></i>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
             <a type="button" id="sidebarCollapse" class="btn btn-info">
                 <i class="fas fa-align-left"></i>
             </a>
@@ -53,7 +76,7 @@
                 <div class="text-content">
                     <div class="text-start"><p>Hello, I am </p></div>
                     <div class="typing"> 
-                        <div class="typing-text"><h1>Win Win Chit</h1></div>
+                        <div class="typing-text"><h1 class="highlight-text">Win Win Chit</h1></div>
                     </div>
                     <div class="intro-text">
                         <p>
