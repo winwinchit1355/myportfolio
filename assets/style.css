@@ -191,18 +191,18 @@ body.light  #sidebarCollapse{
     overflow: hidden;
     margin-top: 15px;
 }
-.image-wrapper:before{
+.image-wrapper::before{
     content:'';
     position: absolute;
     inset:-5px 30px;
     background:linear-gradient(315deg,#069dc3,#dc7bef);
     transition: 0.5s;
-    animation:animate 4s linear infinite;
+    animation: spinner 4s linear infinite;
 }
 .image-wrapper:hover::before{
     inset:-10px 0;
 }
-@keyframes animate{
+@keyframes spinner{
     0%{
         transform: rotate(0deg);
     }
@@ -210,7 +210,7 @@ body.light  #sidebarCollapse{
         transform: rotate(360deg);
     }
 }
-.image-wrapper:after{
+.image-wrapper::after{
     content:'';
     position: absolute;
     inset:2px;
@@ -462,42 +462,14 @@ body.light #content{
         border-color: transparent
     }
 } */
-.text-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-.dynamic-texts span{
-    position: relative;
-    font-size: 30px;
-    font-weight: 600;
-}
 
-.dynamic-texts span.second-text:before{
-    content:"";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-left: 2px solid var(--dark-hightlight-color);
-    animation: animate 4s steps(12) infinite;
-}
 body.dark .dynamic-texts span.second-text:before{
     background-color: var(--color-dark);
 }
 body.light .dynamic-texts span.second-text:before{
     background-color: var(--color-white);
 }
-@keyframes animate{
-    40%, 60%{
-        left: 100%;
-    }
-    100%{
-        left: 0;
-    }
-}
+
 
 .intro-text{
     opacity:0;
@@ -526,7 +498,7 @@ body.light .intro-text{
     width: 80%;
     border-radius: 10px;
 }
-section#mobile-home{
+.mobile-sidebar-main{
     display: none;
 }
 #about{
@@ -570,13 +542,15 @@ section#mobile-home{
     #sidebarCollapse.open{
         left:260px;
     }
-    section#home{
+    .menu-item.home{
         display: none;
     }
-    section#mobile-home{
-        display: inline-block;
-        height: 100%;
+    .desktop-sidebar-main{
+        display: none;
     }
+    .mobile-sidebar-main{
+        display: block;
+    }   
     .mobile-image-content img{
         width: 100%;
         height: 100%;

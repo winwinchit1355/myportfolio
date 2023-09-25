@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#home-link').addClass('active');
+    $('.home-link').addClass('active');
     
     // loader
     setTimeout(function () {
@@ -35,13 +35,13 @@ $(document).ready(function () {
     //     $(this).animate({ left: newPosition + 'px' }, 1000); // Adjust the duration as needed
     //   });
 
-    $('.typing-text').on('animationend webkitAnimationEnd', function() {
-        // After the typing animation, show the intro-text
-        $('.intro-text').css({
-            opacity: 1,
-            transform: 'translateY(0)',
-        });
-    });
+    // $('.typing-text').on('animationend webkitAnimationEnd', function() {
+    //     // After the typing animation, show the intro-text
+    //     $('.intro-text').css({
+    //         opacity: 1,
+    //         transform: 'translateY(0)',
+    //     });
+    // });
     // sidebar menu scroll
     const menuItems = $('.sidebar-main .menu-items div a');
     const contentSections = $('#content section');
@@ -57,6 +57,7 @@ $(document).ready(function () {
                 // Remove 'active' class from all menu items
                 menuItems.removeClass('active');
                 // Add 'active' class to the corresponding menu item
+                console.log(menuItems.eq(index));
                 menuItems.eq(index).addClass('active');
             }
         });
@@ -91,10 +92,8 @@ changeTheme.on('change', function() {
 function darkToLight(){
     $('#moon').removeClass('fa-spin');
     $('#sun').addClass('fa-spin');
-    console.log($('#sun').attr('class'));
 }
 function lightToDark(){
     $('#sun').removeClass('fa-spin');
     $('#moon').addClass('fa-spin');
-    console.log($('#moon').attr('class'));
 }
