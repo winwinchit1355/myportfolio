@@ -1,70 +1,33 @@
-$(document).ready(function () {
-    $('.home-link').addClass('active');
-    
-    // loader
-    setTimeout(function () {
-        $('#loader').css({"display":"none"});
-        $('.wrapper').css({"display":"block"});
-    }, 3000);
-    setTimeout(function () {
-        $('#sidebar').addClass('open');
-        $('#sidebarCollapse').addClass('open');
-        $('#content').addClass('open');
+const words=["Win Win Chit","a Web Developer"];
+const dynamicText=$(".second-text");
 
-        const mode = window.localStorage.getItem('mode');
-        if (mode === 'light') {
-            changeTheme.prop('checked', true);
-            $('body').removeClass("dark").addClass("light");
-            darkToLight();
-        }else{
-            changeTheme.prop('checked', false);
-            $('body').removeClass("light").addClass("dark");
-            lightToDark();
-        }
-    }, 3200);
+let wordIndex=0;
+let charIndex=0;
+let isDeleting=false;
 
-    $("#sidebar").mCustomScrollbar({
-        theme: "minimal"
-    });
-
-
-    // $('#moon').click(function() {
-    //     var currentPosition = parseInt($(this).css('left'));
-    //     var newPosition = currentPosition + 50; // Adjust the amount to move
-    
-    //     $(this).animate({ left: newPosition + 'px' }, 1000); // Adjust the duration as needed
-    //   });
-
-    // $('.typing-text').on('animationend webkitAnimationEnd', function() {
-    //     // After the typing animation, show the intro-text
-    //     $('.intro-text').css({
-    //         opacity: 1,
-    //         transform: 'translateY(0)',
-    //     });
-    // });
-    // sidebar menu scroll
-    const menuItems = $('.sidebar-main .menu-items div a');
-    const contentSections = $('#content section');
-    $(window).scroll(function() {
-        // Get the current scroll position
-        const scrollY = $(window).scrollTop();
-
-        // Iterate through content sections
-        contentSections.each(function(index) {
-            const sectionTop = $(this).offset().top;
-            // Check if the section is in the viewport
-            if (scrollY >= sectionTop) {
-                // Remove 'active' class from all menu items
-                menuItems.removeClass('active');
-                // Add 'active' class to the corresponding menu item
-                console.log(menuItems.eq(index));
-                menuItems.eq(index).addClass('active');
-            }
-        });
-    });
-    
-    
-});
+const typeEffect = () =>{
+    const currentWord= words[wordIndex];
+    const currentChar= currentWord.substring(0,charIndex);
+    dynamicText.text(currentChar);
+    dynamicText.addClass("stop-blinking");
+    if(!isDeleting && charIndex < currentWord.length)
+    {
+        // If condition is true, remove the previous character
+        charIndex++;
+        setTimeout(typeEffect,200);
+    }else if(isDeleting && charIndex > 0)
+    {
+        // If condition is true, remove the previous character
+        charIndex--;
+        setTimeout(typeEffect, 100);
+    }else {
+        // If word is deleted then switch to the next word
+        isDeleting = !isDeleting;
+        dynamicText.removeClass("stop-blinking");
+        wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+        setTimeout(typeEffect, 1200);
+    }
+}
 $('#sidebarCollapse').on('click', function () {
     $('#sidebar, #content' ).toggleClass('open');
     $(this).toggleClass('open');
@@ -97,3 +60,74 @@ function lightToDark(){
     $('#sun').removeClass('fa-spin');
     $('#moon').addClass('fa-spin');
 }
+$(document).ready(function () {
+    $('.home-link').addClass('active');
+    
+    // loader
+    setTimeout(function () {
+        $('#loader').css({"display":"none"});
+        $('.wrapper').css({"display":"block"});
+    }, 3000);
+    setTimeout(function () {
+        $('#sidebar').addClass('open');
+        $('#sidebarCollapse').addClass('open');
+        $('#content').addClass('open');
+
+        const mode = window.localStorage.getItem('mode');
+        if (mode === 'light') {
+            changeTheme.prop('checked', true);
+            $('body').removeClass("dark").addClass("light");
+            darkToLight();
+        }else{
+            changeTheme.prop('checked', false);
+            $('body').removeClass("light").addClass("dark");
+            lightToDark();
+        }
+        
+        $('.intro-text').css({
+            opacity: 1,
+            transform: 'translateY(0)',
+        });
+    }, 3200);
+
+    $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+    });
+
+
+    // $('#moon').click(function() {
+    //     var currentPosition = parseInt($(this).css('left'));
+    //     var newPosition = currentPosition + 50; // Adjust the amount to move
+    
+    //     $(this).animate({ left: newPosition + 'px' }, 1000); // Adjust the duration as needed
+    //   });
+
+    // $('.second-text').on('animationend webkitAnimationEnd', function() {
+    //     // After the typing animation, show the intro-text
+    //     $('.intro-text').css({
+    //         opacity: 1,
+    //         transform: 'translateY(0)',
+    //     });
+    // });
+    // sidebar menu scroll
+    const menuItems = $('.sidebar-main .menu-items div a');
+    const contentSections = $('#content section');
+    $(window).scroll(function() {
+        // Get the current scroll position
+        const scrollY = $(window).scrollTop();
+
+        // Iterate through content sections
+        contentSections.each(function(index) {
+            const sectionTop = $(this).offset().top;
+            // Check if the section is in the viewport
+            if (scrollY >= sectionTop) {
+                // Remove 'active' class from all menu items
+                menuItems.removeClass('active');
+                // Add 'active' class to the corresponding menu item
+                menuItems.eq(index).addClass('active');
+            }
+        });
+    });
+    
+    typeEffect();
+});
