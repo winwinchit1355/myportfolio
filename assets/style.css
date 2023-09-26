@@ -588,6 +588,27 @@ body.light .download-cv{
     background-color: var(--dark-hightlight-color);
 
 }
+/* about timeline */
+.timeline{
+    position: relative;
+    margin:0 auto;
+    /* background-color: var(--color-white-light); */
+    border-radius: 10px;
+    padding:20px;
+}
+.timeline::after{
+    content: "";
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: absolute;
+    width: 2px;
+    background-color: var(--dark-hover-color);
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    margin-left: -3px;
+}
+
 @media screen and  (max-width: 480px) {
     
     #sidebar{
