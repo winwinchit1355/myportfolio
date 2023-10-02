@@ -699,10 +699,15 @@ body.light .download-cv {
     font-size:90px;
     margin: auto;
     font-weight: 700;
-    color: #f5f5f5;
     line-height: 60px;
+    color: #f5f5f5;
     text-shadow: 5px -5px 10px #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-    opacity: 0.05;
+}
+body.light .shade-title{
+    opacity: 0.1;
+}
+body.dark .shade-title{
+    opacity: 0.2;
 }
 
 /* start of education background*/
@@ -1118,8 +1123,59 @@ body.light #about .w-timeline li .w-timeline-info span{
   font-size: 14px;
   color: #555;
 }
-
 /* end of working background */
+
+/* start of skill  */
+#skills{
+    height: 100%;
+}
+.skill-icon{
+    font-size: 35px;
+    padding-right: 0;
+}
+.skill-underline span{
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid var(--bs-gray-400);
+}
+.progress {
+    height: 6px;
+    overflow: visible;
+    margin-bottom: 10px;
+}
+.progress .progress-bar{
+    border-radius: 30px;
+    box-shadow: none;
+    position: relative;
+}
+
+.bg-c-blue {
+    background: #4099ff;
+}
+.progress .progress-bar.bg-c-blue:after {
+    border: 3px solid #4099ff;
+}
+/* end of skill  */
+
+/* start of project */
+#project {
+    box-sizing: border-box;
+    height: 100%;
+}
+body.dark .project-card{
+    background-color: var(--bs-gray-800);
+}
+.project-card img{
+    height: 226px;
+}
+.card-button{
+    background-color: var(--dark-hightlight-color);
+    color: var(--color-white);
+}
+.card-button:hover{
+    background-color: var(--dark-hover-color);
+}
+/* end of project  */
 
 @media screen and (max-width: 480px) {
     
@@ -1145,22 +1201,37 @@ body.light #about .w-timeline li .w-timeline-info span{
         left: 260px;
     }
     /* about section  */
-    
+    .w-timeline-info span{
+        display: block;
+    }
 
 }
 
 @media screen and (max-width: 768px) {
     #sidebar {
         margin-left: -20px;
+        z-index: 9999;
     }
 
     #content {
         width: 100%;
     }
-
     #content.open {
-        width: calc(100% - 250px);
+        width: 100%;
     }
+    #overlay.open{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        opacity: 0.5;
+        z-index: 9998;
+    }
+    /* #content.open {
+        width: calc(100% - 250px);
+    } */
 
     #sidebarCollapse {
         left: 10px;

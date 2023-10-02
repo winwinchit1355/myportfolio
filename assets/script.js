@@ -1,4 +1,4 @@
-const words=["Win Win Chit","a Web Developer"];
+const words=["Win Win Chit","a Web Developer","a Freelancer"];
 const dynamicText=$(".second-text");
 
 let wordIndex=0;
@@ -29,7 +29,7 @@ const typeEffect = () =>{
     }
 }
 $('#sidebarCollapse').on('click', function () {
-    $('#sidebar, #content' ).toggleClass('open');
+    $('#sidebar, #content ,#overlay' ).toggleClass('open');
     $(this).toggleClass('open');
 });
 $('.menu-link').click(function(){
@@ -60,6 +60,15 @@ function lightToDark(){
     $('#sun').removeClass('fa-spin');
     $('#moon').addClass('fa-spin');
 }
+// get click event outside sidebar
+$('#overlay').on('click',function(){
+    // const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    // console.log(viewportWidth)
+    // if(viewportWidth < 768)
+    // {
+        $('#sidebar,#sidebarCollapse,#content,#overlay').removeClass('open');
+    // }
+});
 $(document).ready(function () {
     $('.home-link').addClass('active');
     
