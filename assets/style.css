@@ -1176,6 +1176,15 @@ body.dark .project-card{
     background-color: var(--dark-hover-color);
 }
 /* end of project  */
+/* start of contact */
+.contact-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--bs-gray-600);
+}
+/* end of contact */
 
 @media screen and (max-width: 480px) {
     
