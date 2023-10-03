@@ -124,12 +124,12 @@ $(document).ready(function () {
     $(window).scroll(function() {
         // Get the current scroll position
         const scrollY = $(window).scrollTop();
-
         // Iterate through content sections
         contentSections.each(function(index) {
             const sectionTop = $(this).offset().top;
+            
             // Check if the section is in the viewport
-            if (scrollY >= sectionTop) {
+            if (scrollY >= (sectionTop-400)) {
                 // Remove 'active' class from all menu items
                 menuItems.removeClass('active');
                 // Add 'active' class to the corresponding menu item
