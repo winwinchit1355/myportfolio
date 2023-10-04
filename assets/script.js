@@ -70,6 +70,7 @@ $('#overlay').on('click',function(){
     // }
 });
 $(document).ready(function () {
+
     $('.home-link').addClass('active');
     
     // loader
@@ -81,7 +82,7 @@ $(document).ready(function () {
         $('#sidebar').addClass('open');
         $('#sidebarCollapse').addClass('open');
         $('#content').addClass('open');
-
+        $('.download-cv').addClass('downup-animation');
         const mode = window.localStorage.getItem('mode');
         if (mode === 'light') {
             changeTheme.prop('checked', true);
@@ -136,7 +137,45 @@ $(document).ready(function () {
                 menuItems.eq(index).addClass('active');
             }
         });
+        
     });
     
     typeEffect();
+
+    // animaiton effect on scroll
+    // Function to check if an element is in the viewport
+    function isElementInViewport(elem) {
+        const rect = elem.getBoundingClientRect();
+        return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Function to add animation class when element is in viewport
+    function animateElements() {
+        $(".w-timeline-item").each(function () {
+        if (isElementInViewport(this)) {
+            $(this).removeClass("opacity-0");
+            $(this).addClass("downup-animation");
+            }
+        });
+
+        $(".project-card").each(function () {
+            if (isElementInViewport(this)) {
+                $(this).removeClass("opacity-0");
+                $(this).addClass("downup-animation");
+                }
+            });
+    }
+
+    // Check for animations when scrolling
+    $(window).on("scroll", function () {
+        animateElements();
+    });
+
+
+        
 });
